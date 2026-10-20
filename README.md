@@ -12,9 +12,9 @@ Informatização de uma biblioteca de escola técnica, com quatro perfis de aces
 
 <!-- Preencha com os nomes da equipe (até 4 integrantes) -->
 - Felipe
-- (integrante 2)
-- (integrante 3)
-- (integrante 4)
+- Hágatha 
+- Allan
+
 
 ## Tecnologias
 
