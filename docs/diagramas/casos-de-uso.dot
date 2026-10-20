@@ -1,0 +1,64 @@
+// Diagrama de casos de uso — Biblioteca Escolar
+// Renderizar: dot -Tpng -Gdpi=150 casos-de-uso.dot -o casos-de-uso.png
+digraph UC {
+  rankdir=LR; splines=true; nodesep=0.25; ranksep=0.9; compound=true;
+  fontname="Helvetica"; labelloc=t; label="Diagrama de Casos de Uso — Biblioteca Escolar"; fontsize=18;
+  node [fontname="Helvetica", fontsize=11];
+  edge [fontname="Helvetica", fontsize=10, arrowhead=none];
+
+  // Atores
+  node [shape=plaintext];
+  Visitante [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD><IMG SRC="ator.png"/></TD></TR><TR><TD>Visitante</TD></TR></TABLE>>];
+  Leitor [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD><IMG SRC="ator.png"/></TD></TR><TR><TD>Leitor</TD></TR></TABLE>>];
+  Bibliotecario [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD><IMG SRC="ator.png"/></TD></TR><TR><TD>Bibliotecário</TD></TR></TABLE>>];
+  Administrador [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD><IMG SRC="ator.png"/></TD></TR><TR><TD>Administrador</TD></TR></TABLE>>];
+
+  // Fronteira do sistema
+  subgraph cluster_sistema {
+    label="Biblioteca Escolar"; labeljust=c; fontsize=14; style="rounded"; color="#333333"; penwidth=1.6;
+    node [shape=ellipse, style=filled, fillcolor="#f4f8ff", color="#333355", width=2.6, height=0.7, labelloc=c];
+
+    UC01 [label="UC01\nConsultar catálogo"];
+    UC02 [label="UC02\nCadastrar-se como leitor"];
+    UC03 [label="UC03\nAutenticar-se"];
+    UC04 [label="UC04\nReservar livro"];
+    UC05 [label="UC05\nCancelar reserva"];
+    UC06 [label="UC06\nConsultar meus empréstimos,\nreservas e multas"];
+    UC07 [label="UC07\nRenovar empréstimo"];
+    UC08 [label="UC08\nRegistrar empréstimo"];
+    UC09 [label="UC09\nVerificar elegibilidade\ndo leitor"];
+    UC10 [label="UC10\nRegistrar devolução"];
+    UC11 [label="UC11\nCalcular multa por atraso"];
+    UC12 [label="UC12\nQuitar multa"];
+    UC13 [label="UC13\nNotificar disponibilidade\nde reserva"];
+    UC14 [label="UC14\nGerenciar acervo\n(livros e exemplares)"];
+    UC15 [label="UC15\nGerenciar autores,\neditoras e categorias"];
+    UC16 [label="UC16\nGerenciar leitores"];
+    UC17 [label="UC17\nGerenciar bibliotecários"];
+    UC18 [label="UC18\nConfigurar parâmetros\nda biblioteca"];
+    UC19 [label="UC19\nEmitir relatórios"];
+  }
+
+  // Generalizações entre atores
+  {rank=same; Visitante; Leitor;}
+  {rank=same; Bibliotecario; Administrador;}
+  Leitor        -> Visitante     [arrowhead=onormal, constraint=false];
+  Administrador -> Bibliotecario [arrowhead=onormal, constraint=false];
+
+  // Associações — atores à esquerda
+  Visitante -> UC01; Visitante -> UC02;
+  Leitor -> UC03; Leitor -> UC04; Leitor -> UC05; Leitor -> UC06; Leitor -> UC07;
+
+  // Associações — atores à direita
+  UC03 -> Bibliotecario; UC03 -> Administrador;
+  UC08 -> Bibliotecario; UC10 -> Bibliotecario; UC12 -> Bibliotecario;
+  UC14 -> Bibliotecario; UC15 -> Bibliotecario; UC16 -> Bibliotecario;
+  UC17 -> Administrador; UC18 -> Administrador; UC19 -> Administrador;
+
+  // include / extend
+  edge [style=dashed, arrowhead=open];
+  UC04 -> UC09 [label="«include»"];
+  UC08 -> UC09 [label="«include»"];
+  UC11 -> UC10 [label="«extend»"];
+  UC13 -> UC10 [label="«extend»"];
+}
