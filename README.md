@@ -14,7 +14,7 @@ Informatização de uma biblioteca de escola técnica, com quatro perfis de aces
 - Felipe
 - Hágatha 
 - Allan
--nikolas
+- nikolas
 
 
 ## Tecnologias
