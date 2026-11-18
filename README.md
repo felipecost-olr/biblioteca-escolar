@@ -10,12 +10,10 @@ Informatização de uma biblioteca de escola técnica, com quatro perfis de aces
 
 ## Integrantes
 
-<!-- Preencha com os nomes da equipe (até 4 integrantes) -->
 - Felipe
-- Hágatha 
+- Hágatha
 - Allan
-- nikolas
-
+- Nikolas
 
 ## Tecnologias
 
@@ -47,7 +45,7 @@ Para regenerar o diagrama: `cd docs/diagramas && dot -Tpng -Gdpi=110 casos-de-us
 
 ## Product Backlog
 
-As histórias de usuário estão em `docs/historias-de-usuario.md` e devem estar cadastradas como issues deste repositório. O script `scripts/criar-issues.sh` cria todas (veja `docs/como-criar-issues.md`).
+As histórias de usuário (US01–US20) estão em `docs/historias-de-usuario.md`, ordenadas por prioridade, e são acompanhadas como issues deste repositório.
 
 ## Entregas semanais
 
