@@ -1,0 +1,42 @@
+---
+config:
+  theme: default
+  look: classic
+---
+classDiagram
+    direction TB
+
+    class raiz["br.escola.biblioteca"] {
+        <<package>>
+        App
+    }
+    class ui["br.escola.biblioteca.ui"] {
+        <<package>>
+        TelaLogin
+        TelaCadastro
+        TelaInicial
+    }
+    class dados["br.escola.biblioteca.dados"] {
+        <<package>>
+        UsuarioRepository
+    }
+    class javafx["JavaFX"] {
+        <<biblioteca externa>>
+        javafx.controls
+    }
+    class sqlitejdbc["SQLite JDBC"] {
+        <<biblioteca externa>>
+        sqlite-jdbc
+    }
+    class banco["Banco de dados"] {
+        <<arquivo>>
+        biblioteca.db
+    }
+
+    raiz ..> ui : usa
+    raiz ..> dados : usa
+    ui ..> dados : usa
+    raiz ..> javafx : usa
+    ui ..> javafx : usa
+    dados ..> sqlitejdbc : usa
+    sqlitejdbc ..> banco : grava
