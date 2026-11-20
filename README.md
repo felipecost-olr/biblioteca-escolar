@@ -4,9 +4,10 @@
 Sistema desktop para informatizar a rotina de uma biblioteca escolar, incluindo consulta ao acervo, leitores, empréstimos, devoluções, renovações, reservas e multas.
 
 ## Integrantes
-- Allan
+- Alan
 - Felipe 
-- Hágatha 
+- Hágatha
+- Nicolas
 
 ## Tecnologias
 - Java 21
