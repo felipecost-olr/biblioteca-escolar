@@ -1,54 +1,38 @@
-# Biblioteca Escolar
-
-Sistema desktop para controle de uma biblioteca escolar: catálogo, empréstimos, renovações, devoluções, reservas com fila, multas por atraso e relatórios.
-
-Projeto da disciplina **Análise e Projeto de Sistemas** — IFPI, Campus Picos.
+# Sistema de Biblioteca Escolar
 
 ## Tema
-
-Informatização de uma biblioteca de escola técnica, com quatro perfis de acesso: **Visitante**, **Leitor**, **Bibliotecário** e **Administrador**.
+Sistema desktop para informatizar a rotina de uma biblioteca escolar, incluindo consulta ao acervo, leitores, empréstimos, devoluções, renovações, reservas e multas.
 
 ## Integrantes
-
-- Felipe
-- Hágatha
 - Allan
-- Nikolas
+- Felipe 
+- Hágatha 
 
 ## Tecnologias
+- Java 21
+- JavaFX
+- SQLite
+- JDBC
+- Maven
 
-Java 21 · JavaFX · SQLite (sqlite-jdbc, arquivo local criado na primeira execução) · JDBC · Maven · Git/GitHub
+## Estrutura 
+
+
 
 ## Como executar
-
-Pré-requisitos: JDK 21 e Maven instalados.
+1. Instale o JDK 21.
+2. Instale o Maven.
+3. Abra o terminal na pasta do projeto.
+4. Execute:
 
 ```bash
-git clone <url-do-repositorio>
-cd biblioteca-escolar
 mvn javafx:run
 ```
 
-Na semana 1 o comando abre uma janela vazia, que será ampliada a cada entrega.
+O projeto abre uma tela de login e permite criar contas com nome, e-mail, senha e data de nascimento. As contas são salvas no SQLite em `~/.biblioteca-escolar/biblioteca.db`; o login valida o e-mail e a senha e armazena as senhas protegidas por hash.
 
-## Documentação (pasta `docs/`)
-
-| Arquivo | Conteúdo |
-|---|---|
-| `docs/elicitacao.md` | Contexto, problemas, necessidades e regras de negócio |
-| `docs/historias-de-usuario.md` | Product Backlog inicial (US01–US20) por prioridade |
-| `docs/casos-de-uso.md` | Visão geral, atores, casos de uso (UC01–UC19), rastreabilidade e especificações |
-| `docs/diagramas/casos-de-uso.png` | Diagrama de casos de uso |
-| `docs/diagramas/casos-de-uso.dot` | Arquivo-fonte do diagrama (Graphviz) |
-
-Para regenerar o diagrama: `cd docs/diagramas && dot -Tpng -Gdpi=110 casos-de-uso.dot -o casos-de-uso.png`
-
-## Product Backlog
-
-As histórias de usuário (US01–US20) estão em `docs/historias-de-usuario.md`, ordenadas por prioridade, e são acompanhadas como issues deste repositório.
-
-## Entregas semanais
-
-| Semana | Entrega |
-|---|---|
-| 1 | Repositório, casos de uso e diagrama de casos de uso |
+## Documentação
+- `docs/casos-de-uso.md`: visão geral, atores, histórias e casos de uso.
+- `docs/diagramas/casos-de-uso.png`: diagrama de casos de uso.
+- `docs/diagramas/casos-de-uso.puml`: arquivo-fonte PlantUML do diagrama.
+- `docs/backlog.md`: histórias de usuário organizadas por prioridade.

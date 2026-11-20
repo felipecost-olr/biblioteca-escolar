@@ -1,0 +1,55 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Leitor" as Leitor
+actor "Aluno" as Aluno
+actor "Professor" as Professor
+actor "Bibliotecário" as Bibliotecario
+actor "Administrador" as Administrador
+
+Aluno -|> Leitor
+Professor -|> Leitor
+
+rectangle "Sistema de Biblioteca Escolar" {
+  usecase "UC01 Autenticar no sistema" as UC01
+  usecase "UC02 Gerenciar usuários e perfis" as UC02
+  usecase "UC03 Gerenciar acervo" as UC03
+  usecase "UC04 Gerenciar leitores" as UC04
+  usecase "UC05 Gerenciar categorias, autores e editoras" as UC05
+  usecase "UC06 Consultar acervo" as UC06
+  usecase "UC07 Registrar empréstimo" as UC07
+  usecase "UC08 Validar elegibilidade do leitor" as UC08
+  usecase "UC09 Registrar devolução" as UC09
+  usecase "UC10 Calcular multa por atraso" as UC10
+  usecase "UC11 Renovar empréstimo" as UC11
+  usecase "UC12 Reservar livro" as UC12
+  usecase "UC13 Registrar pagamento de multa" as UC13
+  usecase "UC14 Consultar meus empréstimos e multas" as UC14
+  usecase "UC15 Emitir relatórios" as UC15
+  usecase "UC16 Sugerir aquisição de livro" as UC16
+}
+
+Leitor --> UC01
+Leitor --> UC06
+Leitor --> UC11
+Leitor --> UC12
+Leitor --> UC14
+Professor --> UC16
+Bibliotecario --> UC01
+Bibliotecario --> UC03
+Bibliotecario --> UC04
+Bibliotecario --> UC05
+Bibliotecario --> UC07
+Bibliotecario --> UC09
+Bibliotecario --> UC13
+Bibliotecario --> UC15
+Administrador --> UC01
+Administrador --> UC02
+Administrador --> UC15
+
+UC07 ..> UC08 : <<include>>
+UC11 ..> UC08 : <<include>>
+UC12 ..> UC08 : <<include>>
+UC10 ..> UC09 : <<extend>>
+@enduml
